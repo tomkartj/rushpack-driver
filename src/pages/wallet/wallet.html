@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Wallet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div style="text-align: center; height: 100px;">
+    <h1>$ {{ (driver)?.balance }}</h1>
+    <button ion-button (click)="withdraw()">WITHDRAW</button>
+  </div>
+  <ion-list>
+    <ion-list-header>
+      Transaction History
+    </ion-list-header>
+    <ion-item no-border *ngFor="let record of records">
+      <h2>Txn ID: {{record.$key}}</h2>
+      <p>{{ record.type }} - {{ record.createdAt | amDateFormat: 'YYYY-MM-DD HH:mm'}}</p>
+      <ion-note item-right>${{ record.amount }}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

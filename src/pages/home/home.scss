@@ -1,0 +1,30 @@
+page-home,
+.home {
+    ion-col{
+        text-align: center;
+    }
+    .card-md{
+        background: #243c50;
+    }
+    .card-header-md{
+        background: #172733;
+        padding: 2px;
+    }
+    .card-header-md h1{
+        text-align: center;
+        color: #fff;
+        padding-top: 5px;
+    }
+    .card-md p{
+        color:#bfbfbf;
+    }
+    #map{
+        width:100%;
+    }
+    .map-overlay {
+        position: absolute;
+        top: 5px;
+        left:5px;
+        right: 5px;
+    }
+}

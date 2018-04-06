@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title >
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div id="map" style="height: 100%;width:100%;"></div>
+  <div class="map-overlay">
+  <ion-card *ngIf="dealStatus == true">
+    <ion-card-header>
+        <button ion-button clear color="light" (click)="cancelDeal()" style="float:right">
+          <ion-icon name="close-circle"></ion-icon>
+        </button>
+        <h1>New Deal</h1>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <b>FROM - {{ job.origin.distance }}km</b>
+          <p>{{ job.origin.vicinity }}</p>
+        </ion-col>
+        <ion-col>
+          <b>TO - {{ job.destination.distance }}km</b>
+          <p>{{ job.destination.vicinity }}</p>
+        </ion-col>
+      </ion-row>
+      <button ion-button block color="favorite" (click)="confirmJob()">Accept ({{ remainingTime }})</button>
+      
+    </ion-card-content>
+  </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+    <ion-item>
+      <ion-avatar item-left>
+          <img src="{{ (driver)?.photoURL}}" >
+      </ion-avatar>
+      <ion-label>{{ (driver)?.name }} - {{ (driver)?.rating }} <ion-icon color="yellow"  name="md-star"></ion-icon></ion-label>
+      <ion-toggle item-right color="secondary" [(ngModel)]="isDriverAvailable" (ionChange)="changeAvailability()"></ion-toggle>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <button ion-button clear (click)="goWallet()"><ion-icon name="card"></ion-icon>&nbsp;WALLET</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button clear (click)="goHistory()"><ion-icon name="clock"></ion-icon>&nbsp;HISTORY</button>
+      </ion-col>
+      <ion-col>
+          <button ion-button clear (click)="goProfile()"><ion-icon name="contact"></ion-icon>&nbsp;PROFILE</button>
+        </ion-col>
+    </ion-row>
+</ion-footer>
